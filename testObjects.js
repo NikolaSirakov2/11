@@ -1,6 +1,10 @@
 let obj = {
-    cars: ["Lada", "Reno", "Fiat"]
+    sayHello() {
+        return "hello " + obj.cars[0];
+    },
+    cars: ["Lada", "Reno", "Fiat"],
+   
 }
 
 delete obj.cars[2];
-console.log(obj.cars);
+console.log(obj.sayHello());
