@@ -4,18 +4,11 @@ let person = {
 }
 
 let otherOne = {
-    city: "Plovd",
-    country: "Bul"
+    city: "Plovdiv"
 }
-
-let newPerson = JSON.parse(JSON.stringify(person));
+let newPerson = Object.assign({}, person);
 
 person.dog = true;
-
-console.log(person);
-console.log(newPerson);
-
-newPerson = person;
 
 console.log(person);
 console.log(newPerson);
