@@ -1,11 +1,9 @@
 function convert(string){
     let person = JSON.parse(string);
 
-    return person;
+    for (let key in person){
+        console.log(`${key}: ${person[key]}`);
+    }
 }
 
-let aspect = convert('{"name": "George", "age": 40, "town": "Sofia"}');
-
-for (let key in aspect){
-    console.log(`${key}: ${aspect[key]}`);
-}
+convert('{"name": "George", "age": 40, "town": "Sofia"}');
