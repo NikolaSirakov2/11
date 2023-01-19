@@ -5,7 +5,6 @@ function convertToJson(name, last, eyes){
         eyesColor: eyes
     }
 
-    console.log(person);
     console.log(JSON.stringify(person));
 }
 
