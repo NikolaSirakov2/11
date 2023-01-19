@@ -1,14 +1,23 @@
 function personalInfo(firstName, lastName, age){
-    let human = {
-        first: firstName,
-        last: lastName,
-        age: age
-    }
 
-    console.log(human);
+    let human = {
+        firstName: firstName,
+        lastName: lastName,
+        age: age
+    };
 
     return human;
 }
 
-console.log(personalInfo("Nik","Sirakov","33"));
+// function personalInfo(firstName, lastName, age){
+
+//     let rest = {
+//         firstName: firstName,
+//         lastName: lastName,
+//         age : age,
+//     };
+
+//    return rest;
+// }
+personalInfo("Nik","Sirakov","33");
 
