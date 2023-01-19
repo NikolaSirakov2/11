@@ -3,9 +3,19 @@ let person = {
     age: 30
 }
 
-let newPerson = Object.assign({}, person);
+let otherOne = {
+    city: "Plovd",
+    country: "Bul"
+}
+
+let newPerson = JSON.parse(JSON.stringify(person));
 
 person.dog = true;
+
+console.log(person);
+console.log(newPerson);
+
+newPerson = person;
 
 console.log(person);
 console.log(newPerson);
