@@ -10,9 +10,7 @@ let city = {
   postCode: "4000",
 };
 
-// for(let key in city){
-//     console.log(`${key} -> ${city[key]}`);
-// }
+
 
 let keys = Object.keys(city);
 
