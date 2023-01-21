@@ -1,6 +1,7 @@
 function SnowWhite() {
     this.name = "Snow White";
     this.age = 0;
+    this.home = "Castle";
     this.fairness = 0;
     this.grow = function () {
     this.age++;
@@ -26,6 +27,16 @@ function SnowWhite() {
     this.whoIsTheFairest = function () {
     return this.chicks.sort((a, b) => b.fairness - a.fairness)[0];
     }
+    }
+
+    function Hunter() {
+        this.home = "Castle";
+        this.takeSomeone = function () {
+            return "Hunter takes SnowWhite to the forest to kill her!"
+        }
+        this.beMerciful = function () {
+            return "When hunter and SnowWhite reach forest, he decide to let her go."
+        }
     }
 
     let snowWhite = new SnowWhite();
