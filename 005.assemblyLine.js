@@ -13,12 +13,24 @@ function solve() {
     },
 
     hasAudio(car) {
-        let song = car.currentTrack.name;
-        let artist =car.currentTrack.artist
-        car.nowPlaying = function() {
-            return `Now playing "${song}" by ${artist}`
+      let song = car.currentTrack.name;
+      let artist = car.currentTrack.artist;
+      car.nowPlaying = function () {
+        return `Now playing "${song}" by ${artist}`;
+      };
+    },
+
+    hasParktronic(car) {
+      car.checkDistance = function (param) {
+        if (param < 0.1) {
+          console.log("Beep! Beep! Beep!");
+        } else if (param < 0.25) {
+          console.log("Beep! Beep!");
+        } else {
+          console.log("Beep!");
         }
-    }
+      };
+    },
   };
 }
 
@@ -27,7 +39,6 @@ const assemblyLine = solve();
 let car = {
   make: "Fiat",
   model: "Bravo",
-  
 };
 
 assemblyLine.hasClima(car);
@@ -37,12 +48,12 @@ car.adjustTemp();
 
 console.log(car.temp);
 
-
 car.currentTrack = {
-        name: 'Never Gonna Give You Up',
-        artist: 'Rick Astley' 
+  name: "Never Gonna Give You Up",
+  artist: "Rick Astley",
 };
 assemblyLine.hasAudio(car);
 console.log(car.nowPlaying());
 
-console.log(car);
+assemblyLine.hasParktronic(car);
+car.checkDistance(0.55)
