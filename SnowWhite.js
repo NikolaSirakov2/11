@@ -6,6 +6,7 @@ function SnowWhite() {
     this.grow = function () {
     this.age++;
     this.fairness++
+    this.beg = false;
     }
     }
 
@@ -32,16 +33,26 @@ function SnowWhite() {
     function Hunter() {
         this.home = "Castle";
         this.takeSomeone = function () {
-            return "Hunter takes SnowWhite to the forest to kill her!"
+            snowWhite.home = "forest";
+            return "Hunter takes SnowWhite to the forest to kill her!";
+            
         }
         this.beMerciful = function () {
-            return "When hunter and SnowWhite reach forest, he decide to let her go."
+            return "Hunter decide to let her go."
         }
     }
 
     let snowWhite = new SnowWhite();
     let evilQueen = new EvilQueen();
     let mirror = new Mirror();
+    let hunter = new Hunter();
 
-    console.log(snowWhite.grow());
-    console.log(snowWhite);
+   
+
+    console.log(hunter.takeSomeone());
+
+    if (snowWhite.home === "forest"){
+        console.log("She beg him for mercy!");
+        console.log(hunter.beMerciful());
+        snowWhite.home = "dwarf house";
+    }
