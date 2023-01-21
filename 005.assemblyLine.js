@@ -44,3 +44,5 @@ car.currentTrack = {
 };
 assemblyLine.hasAudio(car);
 console.log(car.nowPlaying());
+
+console.log(car);
