@@ -42,6 +42,21 @@ function SnowWhite() {
         }
     }
 
+    function Dwarf() {
+        this.name = undefined;
+        this.home = "dwarf house"
+    }
+
+    function Prince() {
+        this.look = "strong and beatiful";
+        this.position = "Castle";
+
+        this.inLove = false;
+        this.kiss = function () {
+            return "He kiss SnowWhite and she wake up"
+        }
+    }
+
     let snowWhite = new SnowWhite();
     let evilQueen = new EvilQueen();
     let mirror = new Mirror();
