@@ -53,7 +53,7 @@ function SnowWhite() {
 
         this.inLove = false;
         this.kiss = function () {
-            return "He kiss SnowWhite and she wake up"
+            return "He kiss SnowWhite and she wake up!"
         }
     }
 
