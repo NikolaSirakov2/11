@@ -7,6 +7,9 @@ function Girl(name, age, home, fairness) {
     this.age++;
     this.fairness++;
   };
+  this.helps = function () {
+        return "cook, clear and read";
+  }
 }
 
 function Queen(name, age, home, fairness) {
@@ -35,8 +38,8 @@ function Mirror(chicks) {
   };
 }
 
-function Hunter() {
-  this.home = "Castle";
+function Hunter(home) {
+  this.home = home;
   this.takeSomeone = function () {
     snowWhite.home = "forest";
     return "Hunter takes SnowWhite in the forest to kill her!";
@@ -61,15 +64,24 @@ function Prince() {
   };
 }
 
+dwarfsNames = [
+    {name: "Doc"},
+    {name: "Dopey"},
+    {name: "Grumpy"},
+    {name: "Bashful"},
+    {name: "Happy"},
+    {name: "Sleepy"},
+    {name: "Sneezy"}
+]
+
 let snowWhite = new Girl("SnowWhite", 2, "Castle", 1);
 let evilQueen = new Queen("Queen", 22, "Castle", 11);
 let mirror = new Mirror([snowWhite, evilQueen]);
-let hunter = new Hunter();
+let hunter = new Hunter("Castle");
+let dwarfs = dwarfsNames.map(
+    el => new Dwarf(el.name)
+);
 
-// console.log(snowWhite);
-// console.log(evilQueen);
-// console.log(mirror);
-// console.log(hunter);
 
 while (snowWhite.fairness <= evilQueen.fairness) {
   evilQueen.grow();
@@ -77,7 +89,8 @@ while (snowWhite.fairness <= evilQueen.fairness) {
   evilQueen.askMirror(mirror);
 }
 
-if (snowWhite.fairness > evilQueen.fairness) {
+if (snowWhite.fairness > evilQueen.fairness && snowWhite.home === "Castle") {
+
     evilQueen.commandToKill(hunter)
 
   if (snowWhite.home === "forest") {
@@ -86,3 +99,19 @@ if (snowWhite.fairness > evilQueen.fairness) {
     snowWhite.home = "dwarf house";
   }
 }
+
+let sevenDwarfs = "";
+
+for(let i = 0; i < dwarfs.length; i++){
+    if(i === dwarfs.length - 1){
+        sevenDwarfs += dwarfs[i].name;
+    } else {
+    sevenDwarfs += dwarfs[i].name + ", ";
+    }
+}
+
+if(snowWhite.home === dwarfs[0].home){
+    console.log(`${snowWhite.name} runs to the forest where she found the house of the seven dwarfs: ${sevenDwarfs}.`);
+    console.log(`She stay there and ${snowWhite.helps()} for them.`);
+}
+
