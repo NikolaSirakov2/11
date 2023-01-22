@@ -29,6 +29,13 @@ function Queen(name, age, home, fairness) {
     console.log("Queen commands one man to kill SnowWhite!");
     console.log(hunter.takeSomeone());
   };
+  this.getMad = function() {
+    console.log(`${this.name} gets mad and decide its time to finish with SnowWhite once and for all!`);
+    console.log(this.changeClothes());
+  }
+  this.changeClothes = function () {
+    return `She change clothes and dressed up like old woman.`
+  }
 }
 
 function Mirror(chicks) {
@@ -74,7 +81,7 @@ dwarfsNames = [
     {name: "Sneezy"}
 ]
 
-let snowWhite = new Girl("SnowWhite", 2, "Castle", 1);
+let snowWhite = new Girl("SnowWhite", 12, "Castle", 1);
 let evilQueen = new Queen("Queen", 22, "Castle", 11);
 let mirror = new Mirror([snowWhite, evilQueen]);
 let hunter = new Hunter("Castle");
@@ -114,4 +121,13 @@ if(snowWhite.home === dwarfs[0].home){
     console.log(`${snowWhite.name} runs to the forest where she found the house of the seven dwarfs: ${sevenDwarfs}.`);
     console.log(`She stay there and ${snowWhite.helps()} for them.`);
 }
+
+        evilQueen.grow();
+        snowWhite.grow();
+        console.log(`After one year ${evilQueen.name} asks mirror again:`);
+        evilQueen.askMirror(mirror);
+        if(mirror.whoIsTheFairest().name !== "Queen"){
+        evilQueen.getMad();
+        evilQueen.home = "forest";
+        }
 
