@@ -46,8 +46,8 @@ function Hunter() {
   };
 }
 
-function Dwarf() {
-  this.name = undefined;
+function Dwarf(name) {
+  this.name = name;
   this.home = "dwarf house";
 }
 
