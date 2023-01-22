@@ -3,7 +3,7 @@ function Hero (name, power){
     this.power = power;
 }
 
-console.log(Hero.proto);
+console.log(Hero.prototype);
 
 Hero.prototype.age = 300;
 
