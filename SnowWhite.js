@@ -17,7 +17,7 @@ function Queen(name, age, home, fairness) {
   this.age = age;
   this.home = home;
   this.fairness = fairness;
-  this.askMirror = function (mirror) {
+  this.askMirror = function () {
     console.log("Mirror on the wall, who is the fairest of them all?");
     console.log(`${mirror.whoIsTheFairest().name} is the fairest of all!`);
   };
@@ -25,7 +25,7 @@ function Queen(name, age, home, fairness) {
     this.age++;
     this.fairness--;
   };
-  this.commandToKill = function (hunter) {
+  this.commandToKill = function () {
     console.log("Queen commands one man to kill SnowWhite!");
     console.log(hunter.takeSomeone());
   };
@@ -38,10 +38,16 @@ function Queen(name, age, home, fairness) {
   this.changeClothes = function () {
     return `She change clothes and dressed up like old woman.`;
   };
-  this.givePoison = function (apple) {
-    console.log(`Then ${evilQueen.name} go to the forest where she found ${snowWhite.name} and give her a posened ${apple.name}`);
-
-  }
+  this.givePoison = function () {
+    console.log(
+      `Then ${evilQueen.name} go to the forest where she found ${snowWhite.name} and give her a poisened ${apple.name}.`
+    );
+    console.log(apple.poison());
+    console.log(
+      `${evilQueen.name} was finnaly happy and she run back to the castle!`
+    );
+    prince.position = "forest";
+  };
 }
 
 function Mirror(chicks) {
@@ -67,21 +73,26 @@ function Dwarf(name) {
   this.home = "dwarf house";
 }
 
-function Prince() {
-  this.look = "strong and beatiful";
-  this.position = "Castle";
-
-  this.inLove = false;
+function Prince(name, look, position, inLove) {
+    this.name = name;
+  this.look = look;
+  this.position = position;
+  this.inLove = inLove;
+  this.sawShowWhite = function () {
+    console.log(`He saw ${snowWhite.name} laying on the ground and it was love from the first sight`);
+    this.inLove = true;
+  }
   this.kiss = function () {
-    return "He kiss SnowWhite and she wake up!";
+
+    console.log(`He kiss ${snowWhite.name} and she wakes up!`);
   };
 }
 
-function Fruit (name) {
-    this.name = name;
-    this.poison = function () {
-        return `When ${snowWhite.name} bites the ${apple.name} she fell to the ground`;
-    }
+function Fruit(name) {
+  this.name = name;
+  this.poison = function () {
+    return `When ${snowWhite.name} bites the ${apple.name} she fell to the ground! `;
+  };
 }
 
 dwarfsNames = [
@@ -99,7 +110,17 @@ let evilQueen = new Queen("Queen", 22, "Castle", 11);
 let mirror = new Mirror([snowWhite, evilQueen]);
 let hunter = new Hunter("Castle");
 let dwarfs = dwarfsNames.map((el) => new Dwarf(el.name));
-let apple = new Fruit ("apple");
+let apple = new Fruit("apple");
+let prince = new Prince("Sedrik", "strong and handsome", "castle", false);
+
+// ---------------------------------------------------------------------------------------------------------------------------------
+
+console.log(
+  `Once upon a time in one castle lives ${evilQueen.name} and her stepdaughter ${snowWhite.name}.`
+);
+console.log(
+  `${evilQueen.name} was very beatiful and she has magical mirror and every New year she ask it:`
+);
 
 while (snowWhite.fairness <= evilQueen.fairness) {
   evilQueen.grow();
@@ -142,4 +163,4 @@ if (mirror.whoIsTheFairest().name !== "Queen") {
   evilQueen.getMad();
   evilQueen.home = "forest";
 }
-
+evilQueen.givePoison();
