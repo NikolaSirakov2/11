@@ -5,9 +5,18 @@ function Hero (name, power){
 
 console.log(Hero.prototype);
 
-Hero.prototype.age = 300;
+Hero.prototype.run = function (){
+    return "Run";
+}
 
 let superman = new Hero ("Superman", "fly");
 
-console.log(superman);
+superman.__proto__.stop = function () {
+    return "Stop"
+}
+
+let batman = new Hero ("Batman", "tehnologys");
+
+console.log(batman.stop());
+console.log(Hero.prototype.run());
 console.log(superman.__proto__);
