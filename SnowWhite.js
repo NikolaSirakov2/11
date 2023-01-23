@@ -26,7 +26,7 @@ function Queen(name, age, home, fairness) {
     this.fairness--;
   };
   this.commandToKill = function () {
-    console.log("Queen commands one man to kill SnowWhite!");
+    console.log(`${evilQueen.name} coudnt accept this fact and commands one man to kill SnowWhite!`);
     console.log(hunter.takeSomeone());
   };
   this.getMad = function () {
@@ -116,7 +116,7 @@ let prince = new Prince("Sedrik", "strong and handsome", "castle", false);
 // ---------------------------------------------------------------------------------------------------------------------------------
 
 console.log(
-  `Once upon a time in one castle lives ${evilQueen.name} and her stepdaughter ${snowWhite.name}.`
+  `Once upon a time in one ${evilQueen.home} lives ${evilQueen.name} and her stepdaughter ${snowWhite.name}.`
 );
 console.log(
   `${evilQueen.name} was very beatiful and she has magical mirror and every New year she ask it:`
