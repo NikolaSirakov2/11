@@ -10,6 +10,14 @@ function Girl(name, age, home, fairness) {
   this.helps = function () {
     return "cook, clear and read";
   };
+  this.wakesUp = function () {
+    console.log(`${this.name} opens her eyes and take a deep breath!`);
+    console.log(this.fallInLove());
+
+  }
+  this.fallInLove = function () {
+    return `She saw ${prince.name} and instatly fall in love too!`
+  }
 }
 
 function Queen(name, age, home, fairness) {
@@ -79,12 +87,13 @@ function Prince(name, look, position, inLove) {
   this.position = position;
   this.inLove = inLove;
   this.sawShowWhite = function () {
-    console.log(`He saw ${snowWhite.name} laying on the ground and it was love from the first sight`);
+    console.log(`He saw ${snowWhite.name} laying on the ground and it was love from the first sight.`);
     this.inLove = true;
+    return this.kiss();
   }
   this.kiss = function () {
 
-    console.log(`He kiss ${snowWhite.name} and she wakes up!`);
+    console.log(`${this.name} decide to kiss ${snowWhite.name} even she wasnt breathing.`);
   };
 }
 
@@ -164,3 +173,10 @@ if (mirror.whoIsTheFairest().name !== "Queen") {
   evilQueen.home = "forest";
 }
 evilQueen.givePoison();
+
+console.log(`At the same time young prince ${prince.name} from another kingdom was on hunt in the same forest.`);
+prince.sawShowWhite();
+
+snowWhite.wakesUp();
+
+console.log(`After that ${snowWhite.name},${prince.name} and ${sevenDwarfs} lived happily ever after in prince's kingdom!`);
