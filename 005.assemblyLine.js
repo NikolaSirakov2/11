@@ -52,6 +52,7 @@ car.currentTrack = {
   name: "Never Gonna Give You Up",
   artist: "Rick Astley",
 };
+
 assemblyLine.hasAudio(car);
 console.log(car.nowPlaying());
 
