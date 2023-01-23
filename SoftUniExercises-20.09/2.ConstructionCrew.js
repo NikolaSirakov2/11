@@ -10,7 +10,7 @@ function crew({weight, experience, levelOfHydrated, dizziness}){
         worker.levelOfHydrated += (0.1*worker.weight*worker.experience);
     }
 
-    console.log(worker);
+    return worker;
 }
 
 crew({ weight: 95,
