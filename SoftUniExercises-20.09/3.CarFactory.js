@@ -1,0 +1,1 @@
+function carFactory({model, power, color, carriage, wheelsize})
