@@ -12,9 +12,15 @@ function Bird (name, weight) {
 }
 
 Bird.prototype = Object.create(Animal.prototype);
+Bird.prototype.constructor = Bird;
+
+Bird.prototype.canFly = function () {
+    return "Fly"
+}
 
 let eagle = new Bird ("eagle", 20);
 
-console.log(Animal.prototype);
-console.log(Bird.prototype);
-console.log(eagle.canBreathe());
+console.log(Animal.prototype.constructor);
+console.log(Bird.prototype.constructor);
+console.log(eagle.constructor);
+console.log(eagle.canFly());
