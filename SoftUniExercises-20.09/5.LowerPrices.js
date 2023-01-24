@@ -21,10 +21,10 @@ function lowerPrices(arr) {
 
   let newA = Object.entries(products);
 
-  for (let [prod, val] of newA) {
+  for (let [prod, val] of Object.entries(products)) {
     let el = Object.values(val);
 
-    console.log(`${prod} -> ${el[0]} (${el[1]})`);
+    console.log(`${prod} -> ${val.lowerP} (${val.town})`);
   }
 }
 
