@@ -1,22 +1,16 @@
-function Hero (name, power){
+function Animal (name, weight){
     this.name = name;
-    this.power = power;
+    this.weight = weight;
 }
 
-console.log(Hero.prototype);
-
-Hero.prototype.run = function (){
-    return "Run";
+function Bird (name, weight) {
+    Animal.call(this, name, weight);
 }
 
-let superman = new Hero ("Superman", "fly");
+let eagle = new Bird ("eagle", 20);
 
-superman.__proto__.stop = function () {
-    return "Stop"
-}
+eagle.prototype.constructor = eagle;
 
-let batman = new Hero ("Batman", "tehnologys");
-
-console.log(batman.stop());
-console.log(Hero.prototype.run());
-console.log(superman.__proto__);
+console.log(Animal.prototype);
+console.log(Bird.prototype);
+console.log(eagle);
