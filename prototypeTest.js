@@ -3,14 +3,18 @@ function Animal (name, weight){
     this.weight = weight;
 }
 
+Animal.prototype.canBreathe = function () {
+    return "Breathe";
+}
+
 function Bird (name, weight) {
     Animal.call(this, name, weight);
 }
 
-let eagle = new Bird ("eagle", 20);
+Bird.prototype = Object.create(Animal.prototype);
 
-eagle.prototype.constructor = eagle;
+let eagle = new Bird ("eagle", 20);
 
 console.log(Animal.prototype);
 console.log(Bird.prototype);
-console.log(eagle);
+console.log(eagle.canBreathe());
