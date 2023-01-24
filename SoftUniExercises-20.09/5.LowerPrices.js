@@ -19,6 +19,7 @@ function lowerPrices(arr) {
     }
   }
 
+  console.log(products);
   let newA = Object.entries(products);
 
   for (let [prod, val] of Object.entries(products)) {
