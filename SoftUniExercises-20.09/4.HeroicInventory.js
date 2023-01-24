@@ -1,21 +1,23 @@
 function inventory(arr){
-    let obj = {
-        heroName: undefined,
-        heroLevel: undefined,
-        items: undefined
-    };
-
-    
+    let allHero = [];
 
     for(let i = 0; i < arr.length; i++){
         let info = arr[i].split(" / ");
 
-        obj.heroName = info[0];
-        obj.heroLevel = Number(info[1]);
-        obj.items = info[2].split(", ");
+        let obj = {
+        name: info[0],
+        level: Number(info[1]),
+        items: info[2].split(", ")
+        }
+
+        allHero.push(obj);
     }
 
-    console.log(JSON.stringify(obj));
+    console.log(JSON.stringify(allHero));
 }
 
-inventory(['Jake / 1000 / Gauss, HolidayGrenade']);
+inventory(['Isacc / 25 / Apple, GravityGun',
+
+'Derek / 12 / BarrelVest, DestructionSword',
+
+'Hes / 1 / Desolator, Sentinel, Antara']);
