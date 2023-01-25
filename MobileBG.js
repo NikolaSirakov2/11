@@ -24,9 +24,11 @@ class Vehicle {
 }
 
 class Car extends Vehicle {
-    constructor(kilometers, maxSpeed){
+    constructor(made, type, kilometers, maxSpeed){
         super (Vehicle);
         this.kilometers = kilometers;
         this.maxSpeed = maxSpeed;
     }
 }
+
+console.log(new Car("BMW", "jeep", 20000, 250));
