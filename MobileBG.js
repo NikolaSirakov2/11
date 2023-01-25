@@ -23,3 +23,10 @@ class Vehicle {
     }
 }
 
+class Car extends Vehicle {
+    constructor(kilometers, maxSpeed){
+        super (Vehicle);
+        this.kilometers = kilometers;
+        this.maxSpeed = maxSpeed;
+    }
+}
