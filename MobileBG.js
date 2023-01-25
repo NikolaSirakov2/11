@@ -8,9 +8,11 @@ class User {
 let gosho = new User("Gosho", "007")
 
 class UserManager {
+
+    allUsers = [];
+    loggedUsers = [];
     constructor (User){
         this.user = User.name;
     }
 }
 
-console.log(gosho);
