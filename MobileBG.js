@@ -16,3 +16,10 @@ class UserManager {
     }
 }
 
+class Vehicle {
+    constructor(made, type){
+        this.made = made;
+        this.type = type;
+    }
+}
+
