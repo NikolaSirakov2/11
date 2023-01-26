@@ -58,16 +58,16 @@ class Car extends Vehicle {
 }
 
 class Bike extends Vehicle {
-  constructor(make, model, hp, turbo){
-    super(make, model)
+  constructor(make, model, hp, turbo) {
+    super(make, model);
     this.hp = hp;
     this.turbo = turbo;
   }
 }
 
 class Jeep extends Vehicle {
-  constructor(make, model, high,offroad){
-    super(make,model)
+  constructor(make, model, high, offroad) {
+    super(make, model);
     this.make = make;
     this.model = model;
     this.high = high;
@@ -76,45 +76,79 @@ class Jeep extends Vehicle {
 }
 
 class Offer {
-    constructor(title, description, year, photos, vehicle){
-        this.title = title;
-        this.description = description;
-        this.year = year;
-        this.photos = photos;
-        this.vehicle = vehicle;
-    }
+  constructor(title, description, year, photos, vehicle) {
+    this.title = title;
+    this.description = description;
+    this.year = year;
+    this.photos = photos;
+    this.vehicle = vehicle;
+  }
 }
 
 class OffersManager {
-    allOffers = [];
+  allOffers = [];
 
-    createOffer(offer){
-        let oldOffers = this.allOffers.filter(e => e.title === offer.title);
+  createOffer(offer) {
+    let oldOffers = this.allOffers.filter((e) => e.title === offer.title);
 
-        if(oldOffers.length){
-            console.log("This offer is already publicited!");
-        } else {
-            this.allOffers.push(offer)
-        }
+    if (oldOffers.length) {
+      console.log("This offer is already publicited!");
+    } else {
+      this.allOffers.push(offer);
+    }
+  }
+
+  deleteOffer(offer) {
+    let deleteOffer = this.allOffers.filter((e) => e.title !== offer.title);
+    this.allOffers = deleteOffer;
+  }
+
+  search(keyword) {
+    let searching = [];
+    for (let i = 0; i < this.allOffers.length; i++) {
+      if (this.allOffers[i].made.hasOwnProperty(keyword)) {
+        searching.push(this.allOffers[i])
+      }
     }
 
-    deleteOffer(offer){
-        let deleteOffer = this.allOffers.filter(e => e.title !== offer.title);
-        this.allOffers = deleteOffer;
+    if (searching.length) {
+      console.log(searching);
+      console.log("Ima q");
+    } else {
+      console.log("No results!");
     }
+  }
 }
 
 let nik = new User("Nik", "parola", "test@abv.com");
 
-let gosho = new User("Gosho", "test", "poshta@gmail.com")
+let gosho = new User("Gosho", "test", "poshta@gmail.com");
 
 let userManager = new UserManager();
 
-let toyota = new Offer("Toyota Celica", "New import from Italy!", "2000", "no photos", new Car("Toyota", "Celica", 150000, 240)); 
+let toyota = new Offer(
+  "Toyota Celica",
+  "New import from Italy!",
+  "2000",
+  "no photos",
+  new Car("Toyota", "Celica", 150000, 240)
+);
 
-let hondaCbr = new Offer("Honda CBR 600cc", "Brand new", 2022, "no photos", new Bike("Honda","CBR",113, "yes"));
+let hondaCbr = new Offer(
+  "Honda CBR 600cc",
+  "Brand new",
+  2022,
+  "no photos",
+  new Bike("Honda", "CBR", 113, "yes")
+);
 
-let ladaNiva = new Offer("Lada Niva", "In great condition!", 1995, "no photos", new Jeep("Lada", "Niva", 2.3, true))
+let ladaNiva = new Offer(
+  "Lada Niva",
+  "In great condition!",
+  1995,
+  "no photos",
+  new Jeep("Lada", "Niva", 2.3, true)
+);
 
 let offerManager = new OffersManager();
 
@@ -132,4 +166,6 @@ offerManager.createOffer(ladaNiva);
 
 offerManager.deleteOffer(toyota);
 
-console.log(offerManager.allOffers);
+console.log(offerManager.allOffers[1]);
+
+offerManager.search("Honda");
