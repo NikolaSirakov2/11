@@ -8,19 +8,41 @@ class User {
 
 class UserManager {
   allUsers = [new User("Mik", "parola", "test@abv.bg")];
-  loggedUser = [];
+  loggedUser = null;
 
   constructor() {}
 
   createNewUser(user) {
-        let filterUsers = this.allUsers.filter(e => e.name === user.name);
+    let filterUsers = this.allUsers.filter(
+      (e) => e.name === user.name || e.email === user.email
+    );
 
-        if(filterUsers.length){
-            console.log("Greshka!");
-        } else {
-            this.allUsers.push(user)
-        }
+    if (filterUsers.length) {
+      console.log("Greshka!");
+    } else {
+      this.allUsers.push(user);
+    }
   }
+
+  deleteUser(user) {
+    let deleteUser = this.allUsers.filter((e) => e.name !== user.name);
+    this.allUsers = deleteUser;
+  }
+
+  logInUser(user) {
+    if (this.loggedUser === null) {
+      this.loggedUser = user;
+    } else {
+      console.log("You are logged already!");
+    }
+  }
+
+logOutUser() {
+    if(this.loggedUser !== null){
+        console.log("Ima lognat acc");
+        this.loggedUser === null;
+    }
+}
 }
 
 class Vehicle {
@@ -40,10 +62,28 @@ class Car extends Vehicle {
 
 let userManager = new UserManager();
 
-console.log(userManager.allUsers);
+// console.log(userManager.allUsers);
 
-let nik = new User("Nik", "parola", "test@abv.bg");
+let nik = new User("Nik", "parola", "test@abv.com");
 
-userManager.createNewUser(nik);
+// userManager.createNewUser(nik);
 
-console.log(userManager.allUsers[1]);
+// console.log(userManager.allUsers);
+
+// userManager.deleteUser(nik);
+
+// console.log(userManager.allUsers[0]);
+
+console.log(userManager.loggedUser);
+
+userManager.logInUser(nik);
+
+console.log(userManager.loggedUser);
+
+userManager.logInUser(nik);
+
+console.log(userManager.loggedUser);
+
+userManager.logOutUser(nik);
+
+console.log(userManager.loggedUser);
