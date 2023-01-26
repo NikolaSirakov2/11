@@ -1,3 +1,4 @@
+
 class User {
   constructor(name, password, email) {
     this.name = name;
@@ -92,7 +93,7 @@ let gosho = new User("Gosho", "test", "poshta@gmail.com")
 
 let userManager = new UserManager();
 
-let toyota = new Offer("Toyota Celica", "New import from Italy!", "2000", "no photos", new Car("Toyota", "Celica", 150000, 240));
+let toyota = new Offer("Toyota Celica", "New import from Italy!", "2000", to, new Car("Toyota", "Celica", 150000, 240));
 
 let offerManager = new OffersManager();
 
