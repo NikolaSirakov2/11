@@ -8,13 +8,15 @@ class User {
 
 class UserManager {
   allUsers = [];
-  loggedUsers = [];
+  loggedUser = [];
 
-  constructor() {};
+  constructor() {}
 
   createNewUser(user) {
-    if (!this.allUsers.hasOwnProperty(user.name)) {
-      console.log("Create new user!");
+    if (this.allUsers.hasOwnProperty(user.name)) {
+      console.log("Ima veche takav potrebitel!");
+    } else {
+        console.log("Dobavqm nov potrebitel");
       this.allUsers.push(user);
     }
   }
@@ -35,6 +37,16 @@ class Car extends Vehicle {
   }
 }
 
-let userManager = new UserManager;
+let userManager = new UserManager();
 
-userManager.createNewUser(new User("Nik", "parola", "test@abv.bg"))
+console.log(userManager.allUsers);
+
+let nik = new User("Nik", "parola", "test@abv.bg");
+
+userManager.createNewUser(nik);
+
+console.log(userManager.allUsers[0]);
+
+userManager.createNewUser(nik);
+
+console.log(userManager.allUsers[1]);
