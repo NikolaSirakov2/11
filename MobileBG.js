@@ -7,18 +7,19 @@ class User {
 }
 
 class UserManager {
-  allUsers = [];
+  allUsers = [new User("Mik", "parola", "test@abv.bg")];
   loggedUser = [];
 
   constructor() {}
 
   createNewUser(user) {
-    if (this.allUsers.hasOwnProperty(user.name)) {
-      console.log("Ima veche takav potrebitel!");
-    } else {
-        console.log("Dobavqm nov potrebitel");
-      this.allUsers.push(user);
-    }
+        let filterUsers = this.allUsers.filter(e => e.name === user.name);
+
+        if(filterUsers.length){
+            console.log("Greshka!");
+        } else {
+            this.allUsers.push(user)
+        }
   }
 }
 
@@ -42,10 +43,6 @@ let userManager = new UserManager();
 console.log(userManager.allUsers);
 
 let nik = new User("Nik", "parola", "test@abv.bg");
-
-userManager.createNewUser(nik);
-
-console.log(userManager.allUsers[0]);
 
 userManager.createNewUser(nik);
 
