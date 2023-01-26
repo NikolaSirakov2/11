@@ -45,27 +45,45 @@ class UserManager {
 }
 
 class Vehicle {
-  constructor(made, type) {
+  constructor(made, model) {
     this.made = made;
-    this.type = type;
+    this.model = model;
   }
 }
 
 class Car extends Vehicle {
-  constructor(made, type, kilometers, maxSpeed) {
-    super(made, type);
+  constructor(made, model, kilometers, maxSpeed) {
+    super(made, model);
     this.kilometers = kilometers;
     this.maxSpeed = maxSpeed;
   }
 }
 
+class Bike extends Vehicle {
+  constructor(make, model, hp, turbo){
+    super(make, model)
+    this.hp = hp;
+    this.turbo = turbo;
+  }
+}
+
+class Jeep extends Vehicle {
+  constructor(make, model, high,offroad){
+    super(make,model)
+    this.make = make;
+    this.model = model;
+    this.high = high;
+    this.offroad = offroad;
+  }
+}
+
 class Offer {
-    constructor(title, description, year, photos, car){
+    constructor(title, description, year, photos, vehicle){
         this.title = title;
         this.description = description;
         this.year = year;
         this.photos = photos;
-        this.car = car;
+        this.vehicle = vehicle;
     }
 }
 
@@ -94,7 +112,11 @@ let gosho = new User("Gosho", "test", "poshta@gmail.com")
 
 let userManager = new UserManager();
 
-let toyota = new Offer("Toyota Celica", "New import from Italy!", "2000", "no photos", new Car("Toyota", "Celica", 150000, 240));
+let toyota = new Offer("Toyota Celica", "New import from Italy!", "2000", "no photos", new Car("Toyota", "Celica", 150000, 240)); 
+
+let hondaCbr = new Offer("Honda CBR 600cc", "Brand new", 2022, "no photos", new Bike("Honda","CBR",113, "yes"));
+
+let ladaNiva = new Offer("Lada Niva", "In great condition!", 1995, "no photos", new Jeep("Lada", "Niva", 2.3, true))
 
 let offerManager = new OffersManager();
 
@@ -102,8 +124,14 @@ console.log(offerManager.allOffers);
 
 offerManager.createOffer(toyota);
 
-console.log(offerManager.allOffers[0]);
+console.log(offerManager.allOffers[0].vehicle);
 
-offerManager.createOffer(toyota);
+offerManager.createOffer(hondaCbr);
 
-console.log(offerManager.allOffers[0].car);
+console.log(offerManager.allOffers[1].vehicle);
+
+offerManager.createOffer(ladaNiva);
+
+offerManager.deleteOffer(toyota);
+
+console.log(offerManager.allOffers);
