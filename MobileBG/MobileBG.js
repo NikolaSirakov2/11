@@ -1,5 +1,3 @@
-
-
 class User {
   constructor(name, password, email) {
     this.name = name;
