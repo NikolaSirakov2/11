@@ -1,11 +1,10 @@
 class User {
-    constructor (name, password) {
+    constructor (name, password, email) {
         this.name = name;
         this.password = password;
+        this.email = email;
     }
 }
-
-let gosho = new User("Gosho", "007")
 
 class UserManager {
 
@@ -13,6 +12,10 @@ class UserManager {
     loggedUsers = [];
     constructor (User){
         this.user = User.name;
+    }
+
+    createNewUser() {
+
     }
 }
 
@@ -30,5 +33,7 @@ class Car extends Vehicle {
         this.maxSpeed = maxSpeed;
     }
 }
+
+
 
 console.log(new Car("BMW", "jeep", 20000, 250));
