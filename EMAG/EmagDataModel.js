@@ -84,6 +84,20 @@ class Basket {
   }
 }
 
+class User {
+    constructor(name, password, email, basket){
+        this.name = name;
+        this.password = password;
+        this.email = email;
+        this.basket = basket;
+    }
+}
+
+class UsersManager {
+    allUsers = [];
+    
+}
+
 let offersManager = new OffersManager();
 
 let iphone14 = new Offer(
@@ -100,6 +114,8 @@ let razzerNaga = new Offer(
 
 let basket = new Basket();
 
+let nik = new User ("Nik", "pass", "nik@abv.bg", new Basket);
+
 offersManager.addOffer(iphone14);
 
 offersManager.addOffer(razzerNaga);
@@ -112,6 +128,12 @@ console.log(basket.basketItems[0]);
 
 basket.addToBasket(offersManager.allOffers[0]);
 
-basket.removeFromBasket(basket.basketItems[0]);
+// basket.removeFromBasket(basket.basketItems[0]);
 
-console.log(basket.basketItems[0]);
+console.log(basket.basketItems[1]);
+
+console.log(nik.basket.basketItems);
+
+nik.basket.addToBasket(offersManager.allOffers[1]);
+
+console.log(nik.basket.basketItems[0]);
