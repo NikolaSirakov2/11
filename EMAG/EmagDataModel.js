@@ -76,7 +76,9 @@ class Basket {
   }
 
   removeFromBasket(basketItems) {
-    let filterBasket = this.basketItems.filter((a) => a.name !== basketItems.name);
+    let filterBasket = this.basketItems.filter(
+      (a) => a.name !== basketItems.name
+    );
 
     this.basketItems = filterBasket;
   }
@@ -96,23 +98,19 @@ let razzerNaga = new Offer(
   new Mouse("Mouses", "160lv", "16 buttons", "16 000 dpi", "6 colors")
 );
 
+let basket = new Basket();
+
 offersManager.addOffer(iphone14);
 
 offersManager.addOffer(razzerNaga);
 
 console.log(offersManager.allOffers[0]);
 
-let basket = new Basket();
-
-console.log(basket);
-
 basket.addToBasket(offersManager.allOffers[1]);
 
 console.log(basket.basketItems[0]);
 
 basket.addToBasket(offersManager.allOffers[0]);
-
-
 
 basket.removeFromBasket(basket.basketItems[0]);
 
