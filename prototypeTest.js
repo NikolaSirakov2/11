@@ -20,7 +20,7 @@ Bird.prototype.canFly = function () {
 
 let eagle = new Bird ("eagle", 20);
 
-console.log(Animal.prototype.constructor);
-console.log(Bird.prototype.constructor);
-console.log(eagle.constructor);
-console.log(eagle.canFly());
+console.log(Animal.__proto__);
+console.log(Bird.__proto__.__proto__);
+console.log(eagle.__proto__.__proto__.__proto__);
+// console.log(eagle.canFly());
