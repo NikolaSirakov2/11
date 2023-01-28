@@ -75,15 +75,15 @@ class Jeep extends Vehicle {
   }
 }
 
-class Offer {
-  constructor(title, description, year, photos, vehicle) {
-    this.title = title;
-    this.description = description;
-    this.year = year;
-    this.photos = photos;
-    this.vehicle = vehicle;
-  }
-}
+// class Offer {
+//   constructor(title, description, year, photos, vehicle) {
+//     this.title = title;
+//     this.description = description;
+//     this.year = year;
+//     this.photos = photos;
+//     this.vehicle = vehicle;
+//   }
+// }
 
 class OffersManager {
   allOffers = [];
