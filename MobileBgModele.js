@@ -35,4 +35,18 @@ class UserManager {
             console.log("Wrong username!");
         }
     }
+
+    logoutUser (){
+        this.logedUser = null;
+    }
+}
+
+class Offer {
+    constructor(title, price, photos, description, vehicle){
+        this.title = title;
+        this.price = price;
+        this.photos = photos;
+        this.description = description;
+        this.vehicle = vehicle;
+    }
 }
