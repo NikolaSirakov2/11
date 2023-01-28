@@ -72,5 +72,15 @@ class offerManager {
 
   editOffer(offer, property, newValue) {}
 
-  filterOffers(k)
+  filterOffers(keyword){
+
+  }
+}
+
+class Vehicle {
+    constructor(make, model, topSpeed){
+        this.make = make;
+        this.model = model;
+        this.topSpeed = topSpeed;
+    }
 }
