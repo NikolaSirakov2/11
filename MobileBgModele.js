@@ -88,6 +88,20 @@ class Vehicle {
 class Car extends Vehicle {
     constructor(make, model, topSpeed, agu){
         super(make, model, topSpeed);
-        this.agu = agu
+        this.agu = agu;
+    }
+}
+
+class Bike extends Vehicle {
+    constructor(make, model, topSpeed, type){
+        super(make, model, topSpeed);
+        this.type = type;
+    }
+}
+
+class Jeep extends Vehicle {
+    constructor(make, model, topSpeed, offroad){
+        super(make, model, topSpeed);
+        this.offroad = offroad
     }
 }
