@@ -50,3 +50,9 @@ class Offer {
         this.vehicle = vehicle;
     }
 }
+
+class offerManager {
+    offers = [];
+
+    createOffer(offer)
+}
