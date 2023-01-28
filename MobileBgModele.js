@@ -26,5 +26,13 @@ class UserManager {
         this.users = filter;
     }
 
-    loginUser (user)
+    loginUser (user){
+        let filter = this.users.filter(i => i.name === user.name);
+
+        if(filter.length && this.logedUser === null){
+            this.logedUser = user;
+        } else if (filter.length <= 0) {
+            console.log("Wrong username!");
+        }
+    }
 }
