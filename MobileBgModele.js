@@ -72,9 +72,14 @@ class OfferManager {
 
   editOffer(offer, property, newValue) {}
 
-  filterOffers(keyword){
+  searchOffers(keyword){
+        let search = this.offers.filter(function(a) {
+            
+            return a.title.toLowerCase().includes(keyword.toLowerCase().trim())
+        })
 
-  }
+        console.log(search[0]);
+   }
 }
 
 class Vehicle {
@@ -112,4 +117,8 @@ let newOfferManager = new OfferManager();
 
 let offer1 = new Offer("BMW M3", 60000, new User("Nik", "pass", "nik@abv.bg"), "New import from Germany" , new Car("BMW", "M3", 300, false));
 
-console.log(offer1.creator);
+newOfferManager.createOffer(offer1)
+
+console.log(newOfferManager.offers[0]);
+
+newOfferManager.searchOffers("BMW")
