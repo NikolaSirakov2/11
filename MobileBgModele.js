@@ -54,5 +54,17 @@ class Offer {
 class offerManager {
     offers = [];
 
-    createOffer(offer)
+    createOffer(offer) {
+        let filter = this.offers.filter(i => i.name === offer.name);
+
+        if(filter.length){
+            console.log("This offer is already added!");
+        } else {
+            this.offers.push(offer);
+        }
+    }
+
+    deleteOffer(offer) {
+        let filter = of
+    }
 }
