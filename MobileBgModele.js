@@ -42,16 +42,16 @@ class UserManager {
 }
 
 class Offer {
-  constructor(title, price, photos, description, vehicle) {
+  constructor(title, price, creator, description, vehicle) {
     this.title = title;
     this.price = price;
-    this.photos = photos;
+    this.creator = creator;
     this.description = description;
     this.vehicle = vehicle;
   }
 }
 
-class offerManager {
+class OfferManager {
   offers = [];
 
   createOffer(offer) {
@@ -102,6 +102,14 @@ class Bike extends Vehicle {
 class Jeep extends Vehicle {
     constructor(make, model, topSpeed, offroad){
         super(make, model, topSpeed);
-        this.offroad = offroad
+        this.offroad = offroad;
     }
 }
+
+
+
+let newOfferManager = new OfferManager();
+
+let offer1 = new Offer("BMW M3", 60000, new User("Nik", "pass", "nik@abv.bg"), "New import from Germany" , new Car("BMW", "M3", 300, false));
+
+console.log(offer1.creator);
