@@ -84,3 +84,10 @@ class Vehicle {
         this.topSpeed = topSpeed;
     }
 }
+
+class Car extends Vehicle {
+    constructor(make, model, topSpeed, agu){
+        super(make, model, topSpeed);
+        this.agu = agu
+    }
+}
