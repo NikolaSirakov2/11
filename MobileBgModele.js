@@ -55,7 +55,7 @@ class OfferManager {
   offers = [];
 
   createOffer(offer) {
-    let filter = this.offers.filter((i) => i.name === offer.name);
+    let filter = this.offers.filter((i) => i.title === offer.title);
 
     if (filter.length) {
       console.log("This offer is already added!");
@@ -70,9 +70,11 @@ class OfferManager {
     this.offers = filter;
   }
 
-  editOffer(property, newValue) {
+  editOffer(title, property, newValue) {
     let edit = this.offers.filter(function(a) {
+        if(a.title.toLowerCase() === title.toLowerCase().trim()){
         return a[property] = newValue;
+        }
     })
 
     
@@ -127,12 +129,16 @@ let newOfferManager = new OfferManager();
 
 let offer1 = new Offer("BMW M3", 60000, new User("Nik", "pass", "nik@abv.bg"), "New import from Germany" , new Car("BMW", "M3", 300, false));
 
+let offer2 = new Offer("Audi A8", 90000, new User("Sam", "kod", "sam@test.bg"), "Full package", new Car("Audi", "A8", 280, false));
+
 newOfferManager.createOffer(offer1)
 
-console.log(newOfferManager.offers[0]);
+newOfferManager.createOffer(offer2);
+
+console.log(newOfferManager.offers);
 
 newOfferManager.searchOffers("BMW")
 
-newOfferManager.editOffer("title", "Mercedes");
+newOfferManager.editOffer("Audi A8", "price", 70000);
 
-console.log(newOfferManager.offers[0]);
+console.log(newOfferManager.offers[1].price);
