@@ -70,15 +70,23 @@ class OfferManager {
     this.offers = filter;
   }
 
-  editOffer(offer, property, newValue) {}
+  editOffer(property, newValue) {
+        let edit = this.offers.filter(function(a) {
+            return a[property] = newValue;
+        })
+  }
 
   searchOffers(keyword){
         let search = this.offers.filter(function(a) {
             
             return a.title.toLowerCase().includes(keyword.toLowerCase().trim())
-        })
+        });
 
-        console.log(search[0]);
+        if(search = []){
+            console.log("There is no offer with this name!");
+        } else {
+            console.log(search[0]);
+        }
    }
 }
 
