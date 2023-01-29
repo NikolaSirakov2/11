@@ -140,4 +140,4 @@ newOfferManager.searchOffers("BMW")
 
 newOfferManager.editOffer("Audi A8", "price", 70000);
 
-console.log(newOfferManager.offers[1].price);
+console.log(newOfferManager.offers[1]);
