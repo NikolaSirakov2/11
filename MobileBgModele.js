@@ -71,18 +71,20 @@ class OfferManager {
   }
 
   editOffer(property, newValue) {
-        let edit = this.offers.filter(function(a) {
-            return a[property] = newValue;
-        })
-  }
+    let edit = this.offers.filter(function(a) {
+        return a[property] = newValue;
+    })
+
+    
+}
 
   searchOffers(keyword){
         let search = this.offers.filter(function(a) {
             
             return a.title.toLowerCase().includes(keyword.toLowerCase().trim())
-        });
+        })
 
-        if(search = []){
+        if(search[0] === undefined){
             console.log("There is no offer with this name!");
         } else {
             console.log(search[0]);
@@ -130,3 +132,7 @@ newOfferManager.createOffer(offer1)
 console.log(newOfferManager.offers[0]);
 
 newOfferManager.searchOffers("BMW")
+
+newOfferManager.editOffer("title", "Mercedes");
+
+console.log(newOfferManager.offers[0]);
