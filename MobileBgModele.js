@@ -82,7 +82,6 @@ class OfferManager {
 
   searchOffers(keyword){
         let search = this.offers.filter(function(a) {
-            
             return a.title.toLowerCase().includes(keyword.toLowerCase().trim())
         })
 
