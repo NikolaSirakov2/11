@@ -3,9 +3,18 @@ class Miner {
         this.name = name;
         this.money = 0;
         this.gems = 0;
+        this.days = 0;
     }
 }
 
-let miner1 = new Miner("1");
+let mine = [];
 
-console.log(miner1);
+for (let i = 1; i <= 10; i++){
+    let name = "" + i;
+    
+    let miner = new Miner(name);
+    
+    mine.push(miner)
+}
+
+console.log(mine);
