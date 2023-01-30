@@ -21,9 +21,12 @@ console.log(mine);
 
 for(let d = 1; d <= 10; d++) {
 
+    let m = 0
+
+  while(mine.length > 1) {
+
     
 
-  for (let m = 0; m < mine.length; m++) {
     let nextMiner = mine[m];
 
     nextMiner.days++;
@@ -43,6 +46,7 @@ for(let d = 1; d <= 10; d++) {
         nextMiner.money -= 20;
     }
 
+    m++;
   }
 }
 
