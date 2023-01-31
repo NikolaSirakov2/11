@@ -9,10 +9,10 @@ class Miner {
 
 let mine = [];
 
-for(let d = 1; d <= 10; d++) {
+for (let d = 1; d <= 10; d++) {
+  let nextMiner = new Miner("" + d);
 
-    let miner = new Miner("" + d)
-
+  for (let d = 1; d <= 10; d++) {
     nextMiner.days++;
 
     for (let t = 0; t < 5; t++) {
@@ -25,17 +25,21 @@ for(let d = 1; d <= 10; d++) {
     }
 
     if (nextMiner.money < 20) {
-      mine.splice(m, 1);
+      break;
     } else {
-        nextMiner.money -= 20;
+      nextMiner.money -= 20;
     }
 
-    m++;
-  
+    if (nextMiner.days === 10) {
+      mine.push(nextMiner);
+    }
+  }
 }
 
-console.log(mine.sort((a,b) => b.money - a.money));
+console.log(mine);
 
-for(let i = 0; i < mine.length; i++){
-    console.log(mine[i]);
-}
+// console.log(mine.sort((a, b) => b.money - a.money));
+
+// for (let i = 0; i < mine.length; i++) {
+//   console.log(mine[i]);
+// }
