@@ -19,6 +19,7 @@ for (let d = 1; d <= 10; d++) {
       let chance = Math.floor(Math.random() * 34);
       if (chance === 33) {
         nextMiner.gems++;
+        nextMiner.money += 200;
       } else if (chance >= 1 && chance < 6) {
         nextMiner.money += 10;
       }
@@ -36,7 +37,7 @@ for (let d = 1; d <= 10; d++) {
   }
 }
 
-console.log(mine);
+console.log(mine[0]);
 
 // console.log(mine.sort((a, b) => b.money - a.money));
 
